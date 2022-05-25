@@ -35,17 +35,14 @@ class TestPub(unittest.TestCase):
         self.customer.add_cash(-2)
         self.assertEqual(18, self.customer.wallet)
 
-
     def test_customer_can_afford__false(self):
-        drink = Drink("Miruvor", 50)
-        self.pub.add_drinks_to_pub(drink)
-        answer = self.customer.check_cash(drink)
+        self.pub.add_drinks_to_pub(self.drink1)
+        answer = self.customer.check_cash(self.drink1)
         self.assertEqual(False, answer)
 
     def test_customer_can_afford__true(self):
-        drink = Drink("Ale", 2)
-        self.pub.add_drinks_to_pub(drink)
-        answer = self.customer.check_cash(drink)
+        self.pub.add_drinks_to_pub(self.drink2)
+        answer = self.customer.check_cash(self.drink2)
         self.assertEqual(True, answer)
 
 
